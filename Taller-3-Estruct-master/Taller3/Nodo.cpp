@@ -4,8 +4,6 @@
 
 Nodo::Nodo(int m, bool esHijo)
 {
-	this->esHijo = esHijo;
-	this->tienehijos = false;
 	for (int i = 0; i < m; i++) {
 		this->hijos.push_back(nullptr);
 	}
@@ -13,8 +11,9 @@ Nodo::Nodo(int m, bool esHijo)
 
 void Nodo::limpiarHijos()
 {
+	int largo = this->hijos.size();
 	this->hijos.clear();
-	for (int i = 0; i < this->hijos.size() - 1; i++) {
+	for (int i = 0; i < largo; i++) {
 		this->hijos.push_back(nullptr);
 	}
 }
@@ -25,6 +24,29 @@ int Nodo::retornarPos(int num)
 		if (this->idclaves[i] == num) return i;
 	}
 	return -1;
+}
+
+bool Nodo::esHijo(Nodo * nodo)
+{
+	if (nodo == nullptr) {
+		return false;
+	}
+	for (int i = 0; i < this->hijos.size(); i++) {
+		if (this->hijos[i] == nodo) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Nodo::tieneHijos()
+{
+	for (int i = 0; i < this->hijos.size(); i++) {
+		if (this->hijos[i] != nullptr) {
+			return true;
+		}
+	}
+	return false;
 }
 
 

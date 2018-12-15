@@ -8,16 +8,17 @@ class ArbolB
 {
 public:
 	ArbolB(int m);
-	Nodo* buscarNodoAgregacion(Nodo* nodo, int id);
-	Nodo * buscarNodoAnterior(Nodo * nodo, Nodo * nodo_original, int id);
 	void agregarDato(int id);
-	void agregarDato(Nodo* nodo, int id);
 	bool isOverflow(Nodo* nodo);
 	void imprimir();
-	void imprimirArbol(Nodo* nodo);
 	~ArbolB();
 
 private:
+	Nodo* buscarNodoAgregacion(Nodo* nodo, int id);
+	Nodo* buscarNodoAnterior(Nodo * nodo, Nodo * nodo_original);
+	void agregarDato(Nodo* nodo, int id);
+	void imprimirArbol(Nodo* nodo);
+
 	int m;
 	Nodo* raiz;
 };
